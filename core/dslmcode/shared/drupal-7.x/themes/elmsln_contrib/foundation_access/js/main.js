@@ -114,8 +114,8 @@ var clipboardjs = require('./components/clipboardjs.js');
       window.location = Drupal.settings.basePath + 'users/' + $('#edit-masquerade-user-field').val();
     }
   });
-  // attach events to the window resizing / scrolling
-  $(document).ready(function(){
+  Drupal.behaviors.ELMSLNCore =  {
+    attach: function (context, settings) {
     $(window).scroll(function () {
       Drupal.progressScroll.attach();
     });
@@ -244,6 +244,27 @@ var clipboardjs = require('./components/clipboardjs.js');
         wrapper.focus();
       }
     });
+  }
+  };
+  // attach smoothState
+  $(document).ready(function(){
+    var settings = {
+      anchors: 'a',
+      blacklist: '.no-smoothstate',
+      onAfter: function() {
+        $( 'a' ).each( function() {
+          if ( this.href.indexOf('/admin/') !== -1 ||
+               this.href.indexOf('/edit') !== -1 ||
+               this.href.indexOf('/devel') !== -1 ||
+               this.href.indexOf('/data') !== -1 ||
+               this.href.indexOf('/apps/') !== -1 ) {
+            $( this ).addClass( 'no-smoothstate' );
+          }
+        });
+        Drupal.attachBehaviors();
+      }
+    };
+    $('#etb-tool-nav').smoothState(settings);
   });
 })(jQuery);
 },{"./components/clipboardjs.js":2,"./components/imageLightbox.js":3,"./components/mediavideo.js":4}],2:[function(require,module,exports){

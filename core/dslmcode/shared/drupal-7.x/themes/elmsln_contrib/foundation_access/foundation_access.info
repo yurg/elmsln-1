@@ -8,8 +8,8 @@ stylesheets[all][] = css/system.base.css
 stylesheets[all][] = css/main.css
 stylesheets[print][] = css/print.css
 ; JS
+scripts[] = js/smoothstate.min.js
 scripts[] = js/main.js
-
 ; CIS specific regions
 regions[cis_lmsless_modal]     = CIS LMSLess Modal
 ; Foundation Access navigation levels
