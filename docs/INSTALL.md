@@ -87,6 +87,12 @@ If you want to install ELMS:LN on a google Chromebit it is possible given it has
 
 Not working currently as it doesn't install mysql for some reason correctly
 
+## Good to know / Useful tips  
+
+1. Ubuntu setup: Hands-free installation script has to be executed on fresh Ubuntu box, you have a great chance to break things if any of LAMP/LEMP stuff installed before ELMSLN install script run. 
+
+2. MySQL credentials: you may want to manage your MySQL via some GUI tool; you can find MySQL pseudo-root user login and password details here after setup:
+`/var/www/elmsln/config/scripts/drush-create-site/configpwd.cfg`
 
 
 *Ex Uno Plures*
